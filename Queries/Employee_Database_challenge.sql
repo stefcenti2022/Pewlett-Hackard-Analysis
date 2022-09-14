@@ -46,3 +46,33 @@ GROUP BY ut.title
 ORDER BY count DESC;
 
 SELECT * FROM retiring_titles;
+
+-- *** Code for Deliverable 2
+
+-- *** STEPS 1 - 9
+
+-- Retrieve the emp_no, first_name, last_name, and 
+-- birth_date columns from the Employees table.
+-- Retrieve the from_date and to_date columns 
+-- from the Department Employee table.
+-- Retrieve the title column from the Titles table.
+
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+	e.first_name, 
+	e.last_name, 
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	t.title
+INTO mentorship-eligibility
+FROM employees AS e
+INNER JOIN dept_emp AS de
+ON (e.emp_no = de.emp_no)
+INNER JOIN titles AS t
+ON (e.emp_no = t.emp_no)
+WHERE (t.to_date = '9999-01-01')
+AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+ORDER BY e.emp_no;
+
+
+
