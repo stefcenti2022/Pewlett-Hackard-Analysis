@@ -5,7 +5,7 @@ It has come to the attention of Pewlett Hackard executives that many baby boomer
 This analysis has 2 main objectives:
 
 1) How many employees will be ready to retire in the next 3 years?
-2) Which employees are eligible to be part of the mentorship to prepare them as the next generation to take on these senior roles?
+2) Which employees are eligible to be part of the mentorship program to prepare them as the next generation to take on these senior roles?
 
 Pewlett Hackard (PH) is a huge company with a very large employee database.  Before we go over the results, please refer the the following ERD where we can see all of the currently existing tables and their relationships to one another.
 
@@ -19,8 +19,11 @@ Finally, the Dept-Emp table is a cross reference table between Employees and Dep
 
 ## Results
 TODO: Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
+As stated earlier, we were tasked to anwswer 2 questions. The results while querying and manipulating the employee db will be discussed here in greater detail.
 
+### How many employees will be eligible to retire in the next 3 years?
 
+### Which employees are eligible for the mentorship program?
 
 ## Summary
 TODO: Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
