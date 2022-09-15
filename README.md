@@ -19,7 +19,12 @@ Finally, the Dept-Emp table is a cross reference table between Employees and Dep
 
 ## Results
 Major takeaways from this analysis include the following:
-- The potential number of roles that need to be filled over the next few years is quite staggaring. The following image shows each role and how many potential openings there are if everyone born between 1952 and 1955 were to retire:
+
+- The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5 K records as shown here:
+
+<img src="./Resources/retirement_titles.png" alt="Titles by Employee" width="500"/>
+
+- Since this list included every title and employees that had already left the company, the search was narrowed down to only include current employees of PH and their current role. Even so, the potential number of roles that need to be filled over the next few years is quite staggaring. The following image shows each role and how many potential openings there are if everyone born between 1952 and 1955 were to retire:
 
 <img src="./Resources/potential_retirees.png" alt="Potential Retirees" width="500"/>
 
@@ -31,10 +36,6 @@ Major takeaways from this analysis include the following:
 
 <img src="./Resources/mentorship_eligibility.png" alt="Mentorship Eligibility" width="500"/>
 
-- The number of potential retirees compared to the number of employees that were born in 1965 is too great to expect the reitiring roles to be filled by just this chorhort of employees.  In order to get a reasonable number of employees to fill these roles we needed to expand our search to include birthdates starting in 1965 through 1975. Shown below we can see that this number is much closer to what we will need to fulfill the roles in the next few years:
-
-
-
 ## Summary
 TODO: Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
 
@@ -42,5 +43,8 @@ TODO: Provide high-level responses to the following questions, then provide two 
 TODO: answer q
 
 ### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
-TODO: answer q
+
+The number of potential retirees compared to the number of employees that were born in 1965 is too great to expect the retiring roles of over 72.5K employees to be filled by just 1.5K employees.  In order to get a reasonable number of employees to fill these roles we needed to expand our search to include birthdates starting in 1961 through 1965. This new search gave us a total of a little over 75K employees that would be eligible for mentorship into the roles that will be opening up over the next few years.
+
+<img src="./Resources/expanded_eligibility.png" alt="Expanded Eligibility" width="500"/>
 
