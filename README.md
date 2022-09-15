@@ -20,11 +20,11 @@ Finally, the Dept-Emp table is a cross reference table between Employees and Dep
 ## Results
 Major takeaways from this analysis include the following:
 
-- The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5 K records as shown here:
+- The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5K records as shown here:
 
 <img src="./Resources/retirement_titles.png" alt="Titles by Employee" width="500"/>
 
-- Since this list included every title and employees that had already left the company, the search was narrowed down to only include current employees of PH and their current role. Even so, the potential number of roles that need to be filled over the next few years is quite staggaring. The following image shows each role and how many potential openings there are if everyone born between 1952 and 1955 were to retire:
+- Since this list included every title for each employee, the search was narrowed down to only include employees and their current role. Even so, the potential number of roles that need to be filled over the next few years is quite staggaring. The following image shows each role and how many potential openings there are if everyone born between 1952 and 1955 were to retire:
 
 <img src="./Resources/potential_retirees.png" alt="Potential Retirees" width="500"/>
 
