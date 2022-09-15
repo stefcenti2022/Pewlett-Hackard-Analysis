@@ -11,11 +11,15 @@ Pewlett Hackard (PH) is a huge company with a very large employee database.  Bef
 
 <img src="./Resources/ERD.png" alt="ER Diagram" height="600" width="500"/>
 
-In the ERD, we can easily see that the employees are the main table used to track every employee that is or has worked at PH. Each employee has 1 or more titles and 1 or more salaries over the years.  Titles and Salaries are kept in separate tables referencing the employees and dates that each employee had that Title and/or Salary.
+In the ERD, the all tables are connected to the employees table either directly or indirectly.  This is the main table of the employee database and contains all the identifying information of an employee with keys to access any additional information where the employee will have 1 or more records.  This table is used to track every employee that works at PH. 
 
-As an employees of the company, the Managers table connects each manager with its respective employee record in a one-to-one relationship.  Similarly, each manager is connected to its respective department record which is also a one-to-one relationship for a specific date range. In other words, a manager can only be associated with one department at any given point in time.  There could be cases where a manager has worked for more than one department over the course of their career but they will only be associated with one of the them depending depending on the date being used to query for the manager's department info.
+Going counter clockwise starting from the employees table we can see that each employee has 1 or more titles and 1 or more salaries over the years.  Titles and Salaries are kept in separate tables referencing the employees and dates that each employee had a specific Title and/or Salary.
 
-Finally, the Dept-Emp table is a cross reference table between Employees and Departments.  Since there is a many-to-many relationship between Employees and Departments, this cross reference table creates a one-to-many relationship from Dept-Emp to Employees via the emp_no and dept_no such that one employee will have several records in the Dept-Emp table... (TODO: See questions in slack to confirm these relationships.) 
+Next, the departments table contains all the dpartments of the complany by number and name. This table is connected to the 2 cross reference tables, dept_emp and dept_manager.
+
+The dept_emp table is a cross reference table between Employees and Departments.  Since there is a many-to-many relationship between Employees and Departments, this cross reference table creates a one-to-one relationship between Departments and Employees via the emp_no and dept_no such that one employee will have one department based on the values in to_date and from_date fields that the employee worked in the specific department.
+
+The dept_manager table is also a cross reference table between Employees and Departments. Similar to the the dept_emp table, this one also creates a one to one relationship between Employees and Departments, however, this one is for employees that are managers of the department vs. employees that are workers in the department.
 
 ## Results
 Major takeaways from this analysis include the following:
