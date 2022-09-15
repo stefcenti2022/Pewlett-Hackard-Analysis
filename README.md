@@ -18,12 +18,22 @@ As an employees of the company, the Managers table connects each manager with it
 Finally, the Dept-Emp table is a cross reference table between Employees and Departments.  Since there is a many-to-many relationship between Employees and Departments, this cross reference table creates a one-to-many relationship from Dept-Emp to Employees via the emp_no and dept_no such that one employee will have several records in the Dept-Emp table... (TODO: See questions in slack to confirm these relationships.) 
 
 ## Results
-TODO: Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
-As stated earlier, we were tasked to anwswer 2 questions. The results while querying and manipulating the employee db will be discussed here in greater detail.
+Major takeaways from this analysis include the following:
+- The potential number of roles that need to be filled over the next few years is quite staggaring. The following image shows each role and how many potential openings there are if everyone born between 1952 and 1955 were to retire:
 
-### How many employees will be eligible to retire in the next 3 years?
+<img src="./Resources/potential_retirees.png" alt="Potential Retirees" width="500"/>
 
-### Which employees are eligible for the mentorship program?
+- The number of roles to be filled by title are shown in the table below.
+
+<img src="./Resources/retiring_titles.png" alt="Retiring Titles" width="500"/>
+
+- The table of employees that are eligible for mentorship using the original birthdate of 1965 is shown below:
+
+<img src="./Resources/mentorship_eligibility.png" alt="Mentorship Eligibility" width="500"/>
+
+- The number of potential retirees compared to the number of employees that were born in 1965 is too great to expect the reitiring roles to be filled by just this chorhort of employees.  In order to get a reasonable number of employees to fill these roles we needed to expand our search to include birthdates starting in 1965 through 1975. Shown below we can see that this number is much closer to what we will need to fulfill the roles in the next few years:
+
+
 
 ## Summary
 TODO: Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
