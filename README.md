@@ -9,7 +9,7 @@ This analysis has 2 main objectives:
 
 Pewlett Hackard (PH) is a huge company with a very large employee database.  Before we go over the results, please refer the the following ERD where we can see all of the currently existing tables and their relationships to one another.
 
-<img src="./analysis/EmployeeDB.png" alt="ER Diagram" height="600" width="500"/>
+<img src="./Resources/ERD.png" alt="ER Diagram" height="600" width="500"/>
 
 In the ERD, we can easily see that the employees are the main table used to track every employee that is or has worked at PH. Each employee has 1 or more titles and 1 or more salaries over the years.  Titles and Salaries are kept in separate tables referencing the employees and dates that each employee had that Title and/or Salary.
 
