@@ -43,7 +43,7 @@ Since this list included every title for each employee that ever worked at PH, t
 ### Number of Roles Opening Up as Mentors Retire
 The number of mentor roles to be filled by mentees are shown in the table below ordered by the count of the roles by title:
 
-<img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="500"/>
+<img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="200"/>
 
 We can see that roughly 2/3 are either Senior Engineers or Senior Staff members. If only Senior level positions needed to be filled that would be over 50k people. This group alone is a huge tsunami.
 
@@ -60,9 +60,9 @@ Overall, Pewlett Hackard has an extremely large pool of potential retirees and a
 PH needs to move quickly to prepare for the "silver tsunami!"
 
 ### How many roles will need to be filled?
-Earlier we saw the number of roles that will be potentially opening up as the "Silver Tsunami" hits the doors. As we noted, more than 2/3rds are Senior roles. Later we will query for those mentors that may want to move into a more Senior position before retiring full-time.
+Earlier we saw the number of roles that will be potentially opening up as the "Silver Tsunami" hits our doors. As we noted, more than 2/3rds are Senior roles. Later we will query for those mentors that may want to move into a more Senior position before retiring full-time.
 
-<img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="500"/>
+<img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="200"/>
 
 ### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
@@ -74,17 +74,28 @@ The number of potential retirees compared to the number of employees that were b
 
 Approximately, 1/3 of the mentor pool are not in senior roles.  It may be the case that a good portion of this pool will want to enter as a mentee to move into senior roles before retiring at a later date.  This could help PH fill in roles or some retirees where the current pool of mentees is still too small.
 
-TODO: perform query and put image of output here
+For this query, we selected all the Engineers, Staff and Assistant Engineers by Department. This list can be used by HR to find out which of these employees, if any would be interested in entering the mentorship program as a mentee.
 
-### TODO: think of another possible query to add
+TODO: perform query to get image
+<img src="./Resources/lower_retirees.png" alt="Lower Level Retirees" width="500"/>
 
-TODO: add image of query results here
+### Which mentees should be paired with specific mentors based on roles?
+It would make sense to have similar roles for the mentors as the mentees they are paired with to mentor.  The following table shows a possible pairing of mentors and mentees based on roles.
+
+For this query, we first searched the mentees table (i.e. the mentorship_eligibilty table) for all Staff, Assistant Engineers, Engineers and Tech Leaders and their departments then joined them with the mentor table (i.e. the unique_titles table) with Senior Engineers and Senior Staff based on departments they currently work in. 
+
+TODO: perform query to get image
+<img src="./Resources/mentor_mentee.png" alt="Mentor-Mentee Pairs" width="500"/>
+
+### How many pairs matched? How many more pairs do we need?
+
+TODO: Complete summary based on the findings to these questions
 
 ## Future Enhancements
 
-Though we have completed that analysis asked for us by the HR department, there are a few enhancements that we suggest for the future as this type of analysis will likely be ongoing as people age out of their current status and into a new one or as they leave for any number of other reasons.
+Though we have completed the analysis asked for us by the HR department, there are a few enhancements that we suggest for the future as this type of analysis will likely be ongoing as people age out of their current status and into a new one or as they leave for any number of other reasons.
 
-In general, younger, less experienced employees will be invaluable to replaceing the mentees as they age  out to become mentors themselves.  To make the match pairing easier, we suggest adding the following feaures:
+In general, younger, less experienced employees will be invaluable to replacing the mentees as they age  out to become mentors themselves.  To make the match pairing easier, we suggest adding the following feaures:
 
 1) Allow the user to enter start and end birth dates for both mentors and mentees and use them to find the list of mentees and mentors to be paired.
 2) Allow the user to enter a specific department and use it to present lists of eligible mentors with mentees from the department requested.
