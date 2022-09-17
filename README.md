@@ -22,55 +22,67 @@ The dept_emp table is a cross reference table between Employees and Departments.
 The dept_manager table is also a cross reference table between Employees and Departments. Similar to the the dept_emp table, this one also creates a one to one relationship between Employees and Departments, however, this one is for employees that are managers of the department vs. employees that are workers in the department.
 
 ## Results
-To make it easier to distiguish the employees ready for retirement from the employees the employees to be mentored they will be referred to as mentors and mentees going forward.
+To make it easier to distiguish the employees ready for retirement from the possible pool of employees to be mentored we will refer to these 2 groups as mentors and mentees going forward.
 
 Major takeaways from this analysis include the following:
 - The first run returned too many mentors and needed further filtering.
-- The smaller sample still returned a very large pool of mentors but making it smaller would remove them entirely from the pool.
+- The smaller sample still returned a very large pool of mentors but making it even smaller would remove them entirely from the pool.
 - Looking at the roles that would be opening showed that more than 2/3rd of the mentors were in Senior roles.
-- The pool of mentees requested by HR is entirely too small to cover the numbers of mentors that would be in the program.
+- The pool of mentees requested by HR is entirely too small to cover the number of mentors that would be in the program.
 
 ### First Pool of Mentors
 The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5K records as shown here:
 
-<img src="./Resources/retirement_titles.png" alt="Titles by Employee" width="500"/>
+<img src="./Resources/retirement_titles.png" alt="Large Pool of Mentors" width="500"/>
 
 ### Smaller Pool of Mentors
 Since this list included every title for each employee that ever worked at PH, the search was narrowed down to only include current employees and their current role. Even so, over 72K potential roles that need to be filled over the next few years is quite staggering. The following image shows a sampling of employees that will potentially be retiring and the roles that will be needed if everyone born between 1952 and 1955 were to retire:
 
-<img src="./Resources/potential_retirees.png" alt="Potential Retirees" width="500"/>
+<img src="./Resources/unique_titles.png" alt="Smaller Pool of Mentors" width="500"/>
 
 ### Number of Roles Opening Up as Mentors Retire
 The number of mentor roles to be filled by mentees are shown in the table below ordered by the count of the roles by title:
 
-<img src="./Resources/retiring_titles.png" alt="Retiring Titles" width="500"/>
+<img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="500"/>
 
 We can see that roughly 2/3 are either Senior Engineers or Senior Staff members. If only Senior level positions needed to be filled that would be over 50k people. This group alone is a huge tsunami.
 
 ### Pool of Mentees Requested by HR
 The table of employees that are eligible for mentorship using the original birthdate of 1965 is shown below:
 
-<img src="./Resources/mentorship_eligibility.png" alt="Mentorship Eligibility" width="500"/>
+<img src="./Resources/mentorship_eligibility.png" alt="Smaller Pool of Mentees" width="500"/>
 
 In total, there are only 1,549 employees if we only take from the pool of employees born in 1965. This is barely enough to take over for the 2 roles with the least number employees out of the 7 roles that need to be filled.
 
 ## Summary
-Overall, Pewlett Hackard has an extremely large pool of potential retirees and a very small pool of eligible mentors based on the 2 queries asked of us by the HR department. This means that PH needs to move quickly to prepare for this huge "silver tsunami."
+Overall, Pewlett Hackard has an extremely large pool of potential retirees and a very small pool of eligible mentors based on the 2 queries asked of us by the HR department. 
+
+PH needs to move quickly to prepare for the "silver tsunami!"
 
 ### Query 1
 #### How many roles will need to be filled?
-Earlier we saw the table of unique titles. This table contains each title with the count of potential retirees currently having that title.
+Earlier we saw the number of roles that will be potentially opening up as the "Silver Tsunami" hits the doors. As we noted, more than 2/3rds are Senior roles. Later we will query for those mentors that may want to move into a more Senior position before retiring full-time.
 
-Approximately, 2/3 of the employees about to retire are Senior Engineer or Senior Staff.  To fill these roles we will want to find how many Engineers, Staff, Senior Engineers and Staff are in the age groups that are eligible to retire to see if there is a match to fill those leaving for retirement. This will requrire an additional query. Since 1/3 of the employees about to retire have one of 4 other titles, we will create new unique titles list for all the titles but this time set the age group to be the same as the age group eligible for mentorship.
-
-TODO: perform query and put image of output here
+<img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="500"/>
 
 ### Query 2
 #### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
 The number of potential retirees compared to the number of employees that were born in 1965 is too great to expect the retiring roles of over 72.5K employees to be filled by just 1.5K employees.  In order to get a reasonable number of employees to fill these roles we needed to expand our search to include birthdates starting in 1961 through 1965. This new search gave us a total of a little over 75K employees that would be eligible for mentorship into the roles that will be opening up over the next few years.
 
-<img src="./Resources/expanded_eligibility.png" alt="Expanded Eligibility" width="500"/>
+<img src="./Resources/expanded_eligibility.png" alt="Larger Pool of Mentees" width="500"/>
+
+### Query 3
+#### Which employees are in the pool of mentors but do not have senior roles?
+
+Approximately, 1/3 of the mentor pool are not in senior roles.  It may be the case that a good portion of this pool will want to enter as a mentee to move into senior roles before retiring at a later date.  This could help PH fill in roles or some retirees where the current pool of mentees is still too small.
+
+TODO: perform query and put image of output here
+
+### Query 4
+#### TODO: think of another possible query to add
+
+TODO: add image of query results here
 
 ## Future Enhancements
 
@@ -80,4 +92,6 @@ In general, younger, less experienced employees will be invaluable to replaceing
 
 1) Allow the user to enter start and end birth dates for both mentors and mentees and use them to find the list of mentees and mentors to be paired.
 2) Allow the user to enter a specific department and use it to present lists of eligible mentors with mentees from the department requested.
-3) Allow the user to enter a title for the mentor and a different title for the mentees. For example, Senior Engineer for the mentor and Engineer for the mentee. 
+3) Allow the user to enter a title for the mentor and a different title for the mentees. For example, Senior Engineer for the mentor and Engineer for the mentee.  
+4) Create a new table in the database to hold additional info for Mentors and Mentees such as a reference to whom they are paired with, a boolean value indicating interest in the program, etc.
+5) Develop an intuitive front end GUI to allow HR personel to easily perform these searches and modify entries as needed.
