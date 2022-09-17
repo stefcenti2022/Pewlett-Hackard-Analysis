@@ -59,28 +59,24 @@ Overall, Pewlett Hackard has an extremely large pool of potential retirees and a
 
 PH needs to move quickly to prepare for the "silver tsunami!"
 
-### Query 1
-#### How many roles will need to be filled?
+### How many roles will need to be filled?
 Earlier we saw the number of roles that will be potentially opening up as the "Silver Tsunami" hits the doors. As we noted, more than 2/3rds are Senior roles. Later we will query for those mentors that may want to move into a more Senior position before retiring full-time.
 
 <img src="./Resources/retiring_titles.png" alt="Number of Roles Opening" width="500"/>
 
-### Query 2
-#### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
 The number of potential retirees compared to the number of employees that were born in 1965 is too great to expect the retiring roles of over 72.5K employees to be filled by just 1.5K employees.  In order to get a reasonable number of employees to fill these roles we needed to expand our search to include birthdates starting in 1961 through 1965. This new search gave us a total of a little over 75K employees that would be eligible for mentorship into the roles that will be opening up over the next few years.
 
 <img src="./Resources/expanded_eligibility.png" alt="Larger Pool of Mentees" width="500"/>
 
-### Query 3
-#### Which employees are in the pool of mentors but do not have senior roles?
+### Which employees are in the pool of mentors but do not have senior roles?
 
 Approximately, 1/3 of the mentor pool are not in senior roles.  It may be the case that a good portion of this pool will want to enter as a mentee to move into senior roles before retiring at a later date.  This could help PH fill in roles or some retirees where the current pool of mentees is still too small.
 
 TODO: perform query and put image of output here
 
-### Query 4
-#### TODO: think of another possible query to add
+### TODO: think of another possible query to add
 
 TODO: add image of query results here
 
