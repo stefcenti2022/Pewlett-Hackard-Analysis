@@ -33,12 +33,12 @@ Major takeaways from this analysis include the following:
 ### First Pool of Mentors
 The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5K records as shown here:
 
-<img src="./Resources/retirement_titles.png" alt="Large Pool of Mentors" width="500"/>
+<img src="./Resources/retirement_titles.png" alt="First Pool of Mentors" width="500"/>
 
-### Smaller Pool of Mentors
+### Final Pool of Mentors
 Since this list included every title for each employee that ever worked at PH, the search was narrowed down to only include current employees and their current role. Even so, over 72K potential roles that need to be filled over the next few years is quite staggering. The following image shows a sampling of employees that will potentially be retiring and the roles that will be needed if everyone born between 1952 and 1955 were to retire:
 
-<img src="./Resources/unique_titles.png" alt="Smaller Pool of Mentors" width="500"/>
+<img src="./Resources/unique_titles.png" alt="Final Pool of Mentors" width="500"/>
 
 ### Number of Roles Opening Up as Mentors Retire
 The number of mentor roles to be filled by mentees are shown in the table below ordered by the count of the roles by title:
@@ -50,7 +50,7 @@ We can see that roughly 2/3 are either Senior Engineers or Senior Staff members.
 ### Pool of Mentees Requested by HR
 The table of employees that are eligible for mentorship using the original birthdate of 1965 is shown below:
 
-<img src="./Resources/mentorship_eligibility.png" alt="Smaller Pool of Mentees" width="500"/>
+<img src="./Resources/mentorship_eligibility.png" alt="First Pool of Mentees" width="500"/>
 
 In total, there are only 1,549 employees if we only take from the pool of employees born in 1965. This is barely enough to take over for the 2 roles with the least number employees out of the 7 roles that need to be filled.
 
@@ -68,21 +68,24 @@ Earlier we saw the number of roles that will be potentially opening up as the "S
 
 The number of potential retirees compared to the number of employees that were born in 1965 is too great to expect the retiring roles of over 72.5K employees to be filled by just 1.5K employees.  In order to get a reasonable number of employees to fill these roles we needed to expand our search to include birthdates starting in 1961 through 1965. This new search gave us a total of a little over 75K employees that would be eligible for mentorship into the roles that will be opening up over the next few years.
 
-<img src="./Resources/expanded_eligibility.png" alt="Larger Pool of Mentees" width="500"/>
+<img src="./Resources/expanded_eligibility.png" alt="Final Pool of Mentees" width="500"/>
 
 ### Which employees are in the pool of mentors but do not have senior roles?
 
-Approximately, 1/3 of the mentor pool are not in senior roles.  It may be the case that a good portion of this pool will want to enter as a mentee to move into senior roles before retiring at a later date.  This could help PH fill in roles or some retirees where the current pool of mentees is still too small.
+Approximately, 1/3 of the mentor pool are not in senior roles.  It may be the case that a good portion of this pool will want to enter as a mentee to move into senior roles before retiring at a later date.  This could help PH fill in roles of some retirees where the current pool of mentees is still too small. It may also be a way of prioritizing who should be eligible for the senior roles.
 
-For this query, we selected all the Engineers, Staff and Assistant Engineers by Department. This list can be used by HR to find out which of these employees, if any would be interested in entering the mentorship program as a mentee.
+For this query, we selected all the Engineers, Staff, and Assistant Engineers by Department from the list of mentors and stored them in the table named 'retiring_jr_mentees'. This list can be used by HR to find out which of these employees, if any would be interested in entering the mentorship program as a mentee instead of a mentor.
 
-TODO: perform query to get image
-<img src="./Resources/lower_retirees.png" alt="Lower Level Retirees" width="500"/>
+For example, the following table shows a sample of employees that are eligible to retire but may want to choose to move up to Senior Engineer through the mentorship program. To narrow the selection and to retrieve a greater variety of titles, we chose a small set of birthdates in the retirement eligibilty range:
+ 
+<img src="./Resources/retiring_jr_mentees.png" alt="Retiring Jr. Mentees" width="500"/>
 
 ### Which mentees should be paired with specific mentors based on roles?
-It would make sense to have similar roles for the mentors as the mentees they are paired with to mentor.  The following table shows a possible pairing of mentors and mentees based on roles.
+From the tables created in this analysis, HR can run queries to match mentors with mentees. In this query we will use the mentor (unique_titles) and the mentee (expanded_eligibility) tables to search on title to find a list of mentors that are "Senior Engineers" and a list of mentees that are "Engineers" joined on department number.
 
-For this query, we first searched the mentees table (i.e. the mentorship_eligibilty table) for all Staff, Assistant Engineers, Engineers and Tech Leaders and their departments then joined them with the mentor table (i.e. the unique_titles table) with Senior Engineers and Senior Staff based on departments they currently work in. 
+In the PH-EmployeeDB first search for mentors that are "Senior Engineers" with the following query:
+Select * from unique_titles
+
 
 TODO: perform query to get image
 <img src="./Resources/mentor_mentee.png" alt="Mentor-Mentee Pairs" width="500"/>
