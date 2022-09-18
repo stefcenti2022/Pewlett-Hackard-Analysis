@@ -81,18 +81,15 @@ For example, the following table shows a sample of employees that are eligible t
 <img src="./Resources/retiring_jr_mentees.png" alt="Retiring Jr. Mentees" width="500"/>
 
 ### Which mentees should be paired with specific mentors based on roles?
-From the tables created in this analysis, HR can run queries to match mentors with mentees. In this query we will use the mentor (unique_titles) and the mentee (expanded_eligibility) tables to search on title to find a list of mentors that are "Senior Engineers" and a list of mentees that are "Engineers" joined on department number.
+From the tables created in this analysis, HR can run queries to match mentors with mentees. In this query we will use the senior mentors from the retiring_sr_mentors table and the mentees from the  expanded_eligibility tables to search on title to find a list of mentors that are "Senior Engineers" and a list of mentees that are "Engineers".
 
-In the PH-EmployeeDB first search for mentors that are "Senior Engineers" with the following query:
-Select * from unique_titles
+First, we will find the mentors that will be eligible first based on birthdate. These mentors will come from the retiring_sr_mentors table and we will narrow our selection to only choose those with a title of 'Senior Engineer' with a birthdate between '1952-01-01' and'1952-02-02'. By narrowing the search we will be able to see a variety of departments that have eligible mentors.
 
+<img src="./Resources/retiring_sr_eng_mentors.png" alt="Retiring Sr. Eng. Mentors" width="500"/>
 
-TODO: perform query to get image
-<img src="./Resources/mentor_mentee.png" alt="Mentor-Mentee Pairs" width="500"/>
+Next, we will find some eligible mentees to pair with. Here we search the expanded_eligibility table created earlier that has more than enough employees to pick from. To narrow our search, will only choose the ones with the earliest birthdates.  There are more than enough to match with the previous search for Senior Engineers even using just a few days in the year 1961. For this search we selected employees that currently have a title of 'Engineer' and a birthdate between '1961-01-01' and '1961-01-05'.
 
-### How many pairs matched? How many more pairs do we need?
-
-TODO: Complete summary based on the findings to these questions
+<img src="./Resources/eligible_jr_eng_mentees.png" alt="Eligible Jr. Eng. Mentees" width="500"/>
 
 ## Future Enhancements
 
