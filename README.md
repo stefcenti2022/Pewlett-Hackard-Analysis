@@ -1,5 +1,5 @@
 # Analysis Report Prepared for Pewlett Hackard
-It has come to the attention of Pewlett Hackard executives that many baby boomers are retiring at a rapid rate. Bobby has been tasked to find out who many employees will be eligible for retirement in the next few years and which employees will be eligible to act as mentors to help prepare younger employees in their respective department for career advancement. 
+It has come to the attention of Pewlett Hackard executives that many baby boomers are retiring at a rapid rate. Bobby has been tasked to find out how many employees will be eligible for retirement in the next few years and which employees will be eligible to act as mentors to help prepare younger employees in their respective department for career advancement. 
 
 ## Overview
 This analysis has 2 main objectives:
@@ -7,7 +7,7 @@ This analysis has 2 main objectives:
 1) How many employees will be ready to retire in the next 3 years?
 2) Which employees are eligible to be part of the mentorship program to prepare them as the next generation to take on these senior roles?
 
-Pewlett Hackard (PH) is a huge company with a very large employee database.  Before we go over the results, please refer the the following ERD where we can see all of the currently existing tables and thier relationships to one another.
+Pewlett Hackard (PH) is a huge company with a very large employee database.  Before we go over the results, please refer the the following ERD where we can see all of the currently existing tables and their relationships to one another.
 
 <img src="./Resources/ERD.png" alt="ER Diagram" height="600" width="500"/>
 
@@ -22,7 +22,7 @@ The dept_emp table is a cross reference table between Employees and Departments.
 The dept_manager table is also a cross reference table between Employees and Departments. Similar to the the dept_emp table, this one also creates a one to one relationship between Employees and Departments, however, this one is for employees that are managers of the department vs. employees that are workers in the department.
 
 ## Results
-To make it easier to distiguish the employees ready for retirement from the possible pool of employees to be mentored we will refer to these 2 groups as mentors and mentees going forward.
+To make it easier to distinguish the employees ready for retirement from the possible pool of employees to be mentored we will frequently refer to these 2 groups as mentors and mentees.
 
 Major takeaways from this analysis include the following:
 - The first run returned too many mentors and needed further filtering.
@@ -52,7 +52,9 @@ The table of employees that are eligible for mentorship using the original birth
 
 <img src="./Resources/mentorship_eligibility.png" alt="First Pool of Mentees" width="500"/>
 
-In total, there are only 1,549 employees if we only take from the pool of employees born in 1965. This is barely enough to take over for the 2 roles with the least number employees out of the 7 roles that need to be filled.
+In total, there are only 1,549 employees if we only take from the pool of employees born in 1965. This is barely enough to take over for the 2 roles with the least number employees out of the 7 roles that need to be filled. 
+
+Note that the baby boom ended around 1965. Later, we will show how changing these dates to include a few more years going back will easily expand the pool enough to cover the "Silver Tsunami."
 
 ## Summary
 Overall, Pewlett Hackard has an extremely large pool of potential retirees and a very small pool of eligible mentors based on the 2 queries asked of us by the HR department. 
@@ -74,16 +76,16 @@ The number of potential retirees compared to the number of employees that were b
 
 Approximately, 1/3 of the mentor pool are not in senior roles.  It may be the case that a good portion of this pool will want to enter as a mentee to move into senior roles before retiring at a later date.  This could help PH fill in roles of some retirees where the current pool of mentees is still too small. It may also be a way of prioritizing who should be eligible for the senior roles.
 
-For this query, we selected all the Engineers, Staff, and Assistant Engineers by Department from the list of mentors and stored them in the table named 'retiring_jr_mentees'. This list can be used by HR to find out which of these employees, if any would be interested in entering the mentorship program as a mentee instead of a mentor.
+For this query, we selected all the Engineers, Staff, and Assistant Engineers by Department from the list of mentors and stored them in the table named 'retiring_jr_mentees'. This list can be used by HR to find out which of these employees, if any, would be interested in entering the mentorship program as a mentee instead of a mentor.
 
-For example, the following table shows a sample of employees that are eligible to retire but may want to choose to move up to Senior Engineer through the mentorship program. To narrow the selection and to retrieve a greater variety of titles, we chose a small set of birthdates in the retirement eligibilty range:
+For example, the following table shows a sample of employees that are eligible to retire but may prefer to move up to Senior Engineer through the mentorship program. To narrow the selection and to retrieve a greater variety of titles, we chose a small set of birthdates in the retirement eligibility range:
  
 <img src="./Resources/retiring_jr_mentees.png" alt="Retiring Jr. Mentees" width="500"/>
 
 ### Which mentees should be paired with specific mentors based on roles?
-From the tables created in this analysis, HR can run queries to match mentors with mentees. In this query we will use the senior mentors from the retiring_sr_mentors table and the mentees from the  expanded_eligibility tables to search on title to find a list of mentors that are "Senior Engineers" and a list of mentees that are "Engineers".
+From the tables created in this analysis, HR can run queries to match mentors with mentees. In this query we will use the senior mentors from the retiring_sr_mentors table and the mentees from the expanded_eligibility tables to search on title to find a list of mentors that are "Senior Engineers" and a list of mentees that are "Engineers".
 
-First, we will find the mentors that will be eligible first based on birthdate. These mentors will come from the retiring_sr_mentors table and we will narrow our selection to only choose those with a title of 'Senior Engineer' with a birthdate between '1952-01-01' and'1952-02-02'. By narrowing the search we will be able to see a variety of departments that have eligible mentors.
+First, we will find the mentors that will be eligible first based on birthdate. These mentors will come from the retiring_sr_mentors table and we will narrow our selection to only choose those with a title of 'Senior Engineer' with a birthdate between '1952-01-01' and'1952-02-02'. By narrowing the search we will be able to see several departments have eligible engineering mentors.
 
 <img src="./Resources/retiring_sr_eng_mentors.png" alt="Retiring Sr. Eng. Mentors" width="500"/>
 
@@ -95,10 +97,11 @@ Next, we will find some eligible mentees to pair with. Here we search the expand
 
 Though we have completed the analysis asked for us by the HR department, there are a few enhancements that we suggest for the future as this type of analysis will likely be ongoing as people age out of their current status and into a new one or as they leave for any number of other reasons.
 
-In general, younger, less experienced employees will be invaluable to replacing the mentees as they age  out to become mentors themselves.  To make the match pairing easier, we suggest adding the following feaures:
+In general, younger, less experienced employees will be invaluable to replacing the mentees as they age out to become mentors themselves.  To make the match pairing easier, we suggest adding the following features:
 
 1) Allow the user to enter start and end birth dates for both mentors and mentees and use them to find the list of mentees and mentors to be paired.
 2) Allow the user to enter a specific department and use it to present lists of eligible mentors with mentees from the department requested.
 3) Allow the user to enter a title for the mentor and a different title for the mentees. For example, Senior Engineer for the mentor and Engineer for the mentee.  
 4) Create a new table in the database to hold additional info for Mentors and Mentees such as a reference to whom they are paired with, a boolean value indicating interest in the program, etc.
-5) Develop an intuitive front end GUI to allow HR personel to easily perform these searches and modify entries as needed.
+5) Allow HR to quickly create a report to hand off to the managers of each department.  The report will include Mentor/Mentee pairs in their department to review for recommendations into the mentorship program.
+6) Develop an intuitive front end GUI to allow HR personnel to easily perform these searches and modify entries as needed.
