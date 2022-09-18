@@ -1,5 +1,6 @@
-
+-----------------------------------------------------------
 -- *** Code for Deliverable 1
+-----------------------------------------------------------
 
 -- *** STEPS 1-7
 
@@ -47,7 +48,9 @@ ORDER BY count DESC;
 
 SELECT * FROM retiring_titles;
 
+-----------------------------------------------------------
 -- *** Code for Deliverable 2
+-----------------------------------------------------------
 
 -- *** STEPS 1 - 9
 
@@ -76,7 +79,9 @@ ORDER BY e.emp_no;
 
 SELECT * FROM mentorship_eligibility;
 
+-----------------------------------------------------------
 -- *** Code for Deliverable 3
+-----------------------------------------------------------
 
 --*********************************************
 -- Queries for images shown in Results Section
@@ -213,3 +218,47 @@ SELECT * from retiring_jr_mentees;
 SELECT * 
 FROM retiring_jr_mentees 
 WHERE birth_date IN ('1952-01-05', '1953-02-05', '1954-03-05', '1955-04-05');
+
+
+----------------------------------------------------------------------
+-- The following queries will attempt to show how HR can match a group
+-- employees with a role of 'Senior Engineer' with a group of employees
+-- that are in the pool of eligible mentees created and and stored 
+-- previously in the expanded_eligibilty table.
+----------------------------------------------------------------------
+
+-- 4th img shows possible mentors with a title of 'Senior Engineer'
+
+----------------------------------------------------------------------
+-- First, we will find the mentors that will be eligible first based
+-- on birthdate. These mentors will come from the retiring_sr_mentors 
+-- table and we will narrow our selection to only choose those with a 
+-- title of 'Senior Engineer' in department and a birthdate between 
+-- '1952-01-01' and'1952-02-02'.
+----------------------------------------------------------------------
+SELECT *
+FROM retiring_sr_mentors
+WHERE title = 'Senior Engineer'
+AND (birth_date BETWEEN '1952-01-01' AND '1952-02-02')
+ORDER BY dept_no, birth_date, emp_no;
+
+-- 5th img shows possible mentees with a title of simply 'Engineer'
+
+----------------------------------------------------------------------
+-- Next, we will search the expanded_eligibilty table to find mentees 
+-- to match with the Senior Engineers found above.
+--
+-- In this query, we will limit the pool to a similar size as the pool
+-- for Senior Engineers. Here, we are only choosing employees born 
+-- between '1961-01-01' and '1961-01-04'.
+----------------------------------------------------------------------
+SELECT dept_no,
+	birth_date,
+	title,
+	emp_no,
+	first_name,
+	last_name
+FROM expanded_eligibility
+WHERE title = 'Engineer'
+AND (birth_date BETWEEN '1961-01-01' AND '1961-01-04')
+ORDER BY dept_no, birth_date;
