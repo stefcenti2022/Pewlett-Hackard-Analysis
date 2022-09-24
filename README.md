@@ -31,7 +31,7 @@ Major takeaways from this analysis include the following:
 - The pool of mentees requested by HR is entirely too small to cover the number of mentors that would be in the program.
 
 ### First Pool of Mentors
-The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5K records as shown here:
+The first run through the data created a table of all the employees born between 1952 and 1955 for every role they held during their employment.  This list of employees turned out to have over 267.5K records. This was due to the initial query picked up employees that had multiple titles more than once as shown here:
 
 <img src="./Resources/retirement_titles.png" alt="First Pool of Mentors" width="500"/>
 
